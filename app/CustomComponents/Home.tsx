@@ -29,6 +29,48 @@ import {
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("home");
 
+  const humanPracticeRooms = [
+    {
+      title: "Favorite Animals",
+      description: "Talk about your favorite animals and pets",
+      image:
+        "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=800&h=500&fit=crop",
+      badge: "Be first!",
+    },
+    {
+      title: "Dream Vacation",
+      description: "Where would you go if money was no object?",
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop",
+      badge: "Hot",
+    },
+    {
+      title: "Superpower Choice",
+      description: "If you could have any superpower, what would it be?",
+      image:
+        "https://images.unsplash.com/photo-1534809027769-b00d750a6bac?w=800&h=500&fit=crop",
+    },
+    {
+      title: "Food Adventures",
+      description: "Share your craziest food story or favorite dish",
+      image:
+        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=500&fit=crop",
+      badge: "10+ waiting",
+    },
+    {
+      title: "Time Travel",
+      description: "Past or future? Where are you going?",
+      image:
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop",
+    },
+    {
+      title: "Ghost Stories",
+      description: "Real or fake — tell your scariest experience",
+      image:
+        "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=500&fit=crop",
+      badge: "Live now",
+    },
+  ];
   const stories = [
     {
       title: "Choosing the Right Path",
@@ -41,41 +83,54 @@ const HomeScreen = () => {
         "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=600&fit=crop",
     },
     {
-      title: "The Less Sap",
+      title: "The Less Traveled Road",
       image:
         "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&h=600&fit=crop",
     },
-
-    // 🔥 New Drops
     {
-      title: "Midnight Train",
-      image:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400&h=600&fit=crop",
-    },
-    {
-      title: "Echoes in the Alley",
-      image:
-        "https://images.unsplash.com/photo-1494526585095-c41746248156?w=400&h=600&fit=crop",
-    },
-    {
-      title: "The Last Lighthouse",
-      image:
-        "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=400&h=600&fit=crop",
-    },
-    {
-      title: "Whispers in the Forest",
+      title: "Whispers of the Forest",
       image:
         "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=600&fit=crop",
     },
     {
-      title: "Beneath the Neon Sky",
+      title: "The Moonlit Garden",
       image:
-        "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=400&h=600&fit=crop",
     },
     {
-      title: "Waves That Never Sleep",
+      title: "A Star Named Hope",
       image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=400&h=600&fit=crop",
+    },
+    {
+      title: "The Old Lighthouse",
+      image:
+        "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=400&h=600&fit=crop",
+    },
+    {
+      title: "Rainy Days & Warm Tea",
+      image:
+        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=600&fit=crop",
+    },
+    {
+      title: "The Secret Door",
+      image:
+        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=600&fit=crop",
+    },
+    {
+      title: "Dancing with Fireflies",
+      image:
+        "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=400&h=600&fit=crop",
+    },
+    {
+      title: "The Boy and the Mountain",
+      image:
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=600&fit=crop",
+    },
+    {
+      title: "Echoes of Tomorrow",
+      image:
+        "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=600&fit=crop",
     },
   ];
 
@@ -90,14 +145,38 @@ const HomeScreen = () => {
     {
       name: "Talk with Doraemon",
       image:
-        "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=200&h=200&fit=crop",
+        "https://images.unsplash.com/photo-1685360798969-395cf93b7d2d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZG9yYWVtb258ZW58MHx8MHx8fDA%3D",
       bgColor: "bg-blue-100",
     },
     {
       name: "Talk with Spider Man",
       image:
-        "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=200&h=200&fit=crop",
+        "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BpZGVybWFufGVufDB8fDB8fHww",
       bgColor: "bg-red-100",
+    },
+    {
+      name: "Talk with Pikachu",
+      image:
+        "https://images.unsplash.com/photo-1605979399824-542335ee35d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGlrYWNodXxlbnwwfHwwfHx8MA%3D%3D",
+      bgColor: "bg-yellow-100",
+    },
+    {
+      name: "Talk with Batman",
+      image:
+        "https://images.unsplash.com/photo-1588860939994-ce4f7a537f03?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhdG1hbnxlbnwwfHwwfHx8MA%3D%3D",
+      bgColor: "bg-purple-100",
+    },
+    {
+      name: "Talk with Iron Man",
+      image:
+        "https://images.unsplash.com/photo-1636840438199-9125cd03c3b0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aXJvbiUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D",
+      bgColor: "bg-gray-100",
+    },
+    {
+      name: "Talk with Minions",
+      image:
+        "https://images.unsplash.com/photo-1515041219749-89347f83291a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW9uc3xlbnwwfHwwfHx8MA%3D%3D",
+      bgColor: "bg-yellow-200",
     },
   ];
 
@@ -176,7 +255,7 @@ const HomeScreen = () => {
           {mainActions.map((action, idx) => (
             <button
               key={idx}
-              className="flex flex-col items-center gap-2 group"
+              className="flex flex-col items-center gap-2 group cursor-pointer"
             >
               <div
                 className={`relative w-16 h-16 ${action.color} rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform`}
@@ -188,7 +267,10 @@ const HomeScreen = () => {
                   </span>
                 )}
               </div>
-              <span className="text-xs text-gray-600 text-center leading-tight">
+              <span
+                className="text-sm font-semibold
+                text-gray-800 text-center leading-tight"
+              >
                 {action.label}
               </span>
             </button>
@@ -229,99 +311,117 @@ const HomeScreen = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   </div>
-                  <p className="text-xs text-gray-700 text-center leading-tight">
+                  <p className="text-md font-bold text-gray-900 text-center leading-tight">
                     {story.title}
                   </p>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-0" />
-          <CarouselNext className="right-0" />
+          <CarouselPrevious className="left-0 cursor-pointer hidden lg:flex" />
+          <CarouselNext className="right-0 cursor-pointer hidden lg:flex" />
         </Carousel>
       </div>
 
       {/* Practice with Humans Section */}
-      <div className="px-6 mb-6">
+      <div className="px-6 mb-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
             <Phone className="w-5 h-5 text-purple-500" />
             Practice with Humans
           </h2>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-emerald-500 hover:text-emerald-600 hover:bg-emerald-50"
-          >
-            Show all
-            <ChevronRight className="w-4 h-4 ml-1" />
+          <Button variant="ghost" size="sm" className="text-emerald-500">
+            Show all <ChevronRight className="w-4 h-4 ml-1" />
           </Button>
         </div>
 
-        <Card className="border-2 border-emerald-200 overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
-          <div className="relative h-40">
-            <img
-              src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=600&h=300&fit=crop"
-              alt="Favorite Animals"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">
-              Be first!
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-3 left-3">
-              <h3 className="text-white font-bold mb-1">Favorite Animals</h3>
-              <p className="text-white/90 text-xs">
-                Talk about your favorite animals and pets
-              </p>
-            </div>
-          </div>
-          <CardContent className="p-4">
-            <Button className="w-full bg-emerald-400 hover:bg-emerald-500 text-white rounded-full">
-              Join & Start Call
-            </Button>
-          </CardContent>
-        </Card>
+        <Carousel className="w-full  mx-auto">
+          <CarouselContent className="-ml-4">
+            {humanPracticeRooms.map((room, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
+              >
+                <div className="group cursor-pointer">
+                  <div className="relative rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow">
+                    <img
+                      src={room.image}
+                      alt={room.title}
+                      className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+
+                    {room.badge && (
+                      <div className="absolute top-3 right-3 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold text-orange-600">
+                        {room.badge}
+                      </div>
+                    )}
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
+
+                    <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                      <h3 className="text-lg font-bold mb-1">{room.title}</h3>
+                      <p className="text-sm opacity-90 mb-4">
+                        {room.description}
+                      </p>
+                      <Button className="w-full bg-white text-emerald-600 hover:bg-emerald-50 font-semibold rounded-full h-11 shadow-lg">
+                        Join & Start Call
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <CarouselPrevious className="left-0 cursor-pointer hidden lg:flex" />
+          <CarouselNext className="right-0 cursor-pointer hidden lg:flex" />
+        </Carousel>
       </div>
 
       {/* Practice with AI Section */}
-      <div className="px-6 mb-6">
+      <div className="px-6 mb-10">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-gray-800 flex items-center gap-2">
             <Bot className="w-5 h-5 text-purple-500" />
             Practice with AI
           </h2>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-emerald-500 hover:text-emerald-600 hover:bg-emerald-50"
-          >
-            Show all
-            <ChevronRight className="w-4 h-4 ml-1" />
+          <Button variant="ghost" size="sm" className="text-emerald-500">
+            Show all <ChevronRight className="w-4 h-4 ml-1" />
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          {aiCharacters.map((character, idx) => (
-            <Card
-              key={idx}
-              className={`${character.bgColor} border-0 hover:shadow-lg transition-shadow cursor-pointer`}
-            >
-              <CardContent className="p-4 flex flex-col items-center">
-                <div className="w-24 h-24 rounded-2xl overflow-hidden mb-3">
-                  <img
-                    src={character.image}
-                    alt={character.name}
-                    className="w-full h-full object-cover"
-                  />
+        <Carousel className="w-full  mx-auto">
+          <CarouselContent className="-ml-4">
+            {aiCharacters.map((character, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
+              >
+                <div className="p-2">
+                  <Card
+                    className={`${character.bgColor} border-0 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer`}
+                  >
+                    <CardContent className="p-6 flex flex-col items-center gap-4">
+                      <div className="w-32 h-32 rounded-3xl overflow-hidden shadow-md">
+                        <img
+                          src={character.image}
+                          alt={character.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <p className="text-base font-bold text-gray-800 text-center">
+                        {character.name}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <p className="text-sm font-semibold text-gray-800 text-center">
-                  {character.name}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <CarouselPrevious className="left-0 cursor-pointer hidden lg:flex" />
+          <CarouselNext className="right-0 cursor-pointer hidden lg:flex" />
+        </Carousel>
       </div>
 
       {/* Bottom Navigation */}
