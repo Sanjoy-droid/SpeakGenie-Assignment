@@ -18,6 +18,13 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -37,6 +44,38 @@ const HomeScreen = () => {
       title: "The Less Sap",
       image:
         "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&h=600&fit=crop",
+    },
+
+    // 🔥 New Drops
+    {
+      title: "Midnight Train",
+      image:
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=400&h=600&fit=crop",
+    },
+    {
+      title: "Echoes in the Alley",
+      image:
+        "https://images.unsplash.com/photo-1494526585095-c41746248156?w=400&h=600&fit=crop",
+    },
+    {
+      title: "The Last Lighthouse",
+      image:
+        "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=400&h=600&fit=crop",
+    },
+    {
+      title: "Whispers in the Forest",
+      image:
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=600&fit=crop",
+    },
+    {
+      title: "Beneath the Neon Sky",
+      image:
+        "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400&h=600&fit=crop",
+    },
+    {
+      title: "Waves That Never Sleep",
+      image:
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=600&fit=crop",
     },
   ];
 
@@ -174,23 +213,32 @@ const HomeScreen = () => {
           </Button>
         </div>
 
-        <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-          {stories.map((story, idx) => (
-            <div key={idx} className="flex-shrink-0 w-32">
-              <div className="relative rounded-2xl overflow-hidden mb-2 aspect-[2/3] group cursor-pointer">
-                <img
-                  src={story.image}
-                  alt={story.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              </div>
-              <p className="text-xs text-gray-700 text-center leading-tight">
-                {story.title}
-              </p>
-            </div>
-          ))}
-        </div>
+        <Carousel className="w-full  mx-auto">
+          <CarouselContent className="-ml-4">
+            {stories.map((story, index) => (
+              <CarouselItem
+                key={index}
+                className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
+              >
+                <div className="flex-shrink-0 w-full">
+                  <div className="relative rounded-2xl overflow-hidden mb-2 aspect-[2/3] group cursor-pointer">
+                    <img
+                      src={story.image}
+                      alt={story.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                  <p className="text-xs text-gray-700 text-center leading-tight">
+                    {story.title}
+                  </p>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-0" />
+          <CarouselNext className="right-0" />
+        </Carousel>
       </div>
 
       {/* Practice with Humans Section */}
