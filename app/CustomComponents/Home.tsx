@@ -25,6 +25,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link";
 
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -303,15 +304,22 @@ const HomeScreen = () => {
                 className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4"
               >
                 <div className="flex-shrink-0 w-full">
-                  <div className="relative rounded-2xl overflow-hidden mb-2 aspect-[2/3] group cursor-pointer">
-                    <img
-                      src={story.image}
-                      alt={story.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  </div>
-                  <p className="text-md font-bold text-gray-900 text-center leading-tight">
+                  <Link href={`/story/${index}`} className="block">
+                    {" "}
+                    {/* This makes it clickable */}
+                    <div className="relative rounded-2xl overflow-hidden mb-2 aspect-[2/3] group cursor-pointer">
+                      <img
+                        src={story.image}
+                        alt={story.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      <div className="absolute bottom-3 left-3 text-white">
+                        <p className="text-lg font-bold">{story.title}</p>
+                      </div>
+                    </div>
+                  </Link>
+                  <p className="text-md font-bold text-gray-900 text-center leading-tight mt-2">
                     {story.title}
                   </p>
                 </div>
