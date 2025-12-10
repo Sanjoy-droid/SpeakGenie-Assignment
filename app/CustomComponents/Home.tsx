@@ -437,7 +437,7 @@ const HomeScreen = () => {
         <div className="flex items-center justify-between max-w-md mx-auto">
           <button
             onClick={() => setActiveTab("home")}
-            className="flex flex-col items-center gap-1 group"
+            className="flex flex-col items-center gap-1 group cursor-pointer"
           >
             <div
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
@@ -463,7 +463,7 @@ const HomeScreen = () => {
 
           <button
             onClick={() => setActiveTab("learn")}
-            className="flex flex-col items-center gap-1 group"
+            className="flex flex-col items-center gap-1 group cursor-pointer"
           >
             <div
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
@@ -489,7 +489,7 @@ const HomeScreen = () => {
 
           <button
             onClick={() => setActiveTab("call")}
-            className="flex flex-col items-center gap-1 group"
+            className="flex flex-col items-center gap-1 group cursor-pointer"
           >
             <div
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
@@ -515,7 +515,7 @@ const HomeScreen = () => {
 
           <button
             onClick={() => setActiveTab("profile")}
-            className="flex flex-col items-center gap-1 group"
+            className="flex flex-col items-center gap-1 group cursor-pointer"
           >
             <div
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${

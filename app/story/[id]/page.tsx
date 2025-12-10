@@ -1,18 +1,15 @@
 // app/story/[id]/page.tsx
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { stories } from "@/app/data/stories";
 import {
   ChevronLeft,
   MessageSquare,
-  Share2,
   Play,
   Pause,
   SkipBack,
   SkipForward,
-  StickyNoteIcon,
-  StickyNote,
   ClipboardCheck,
   FileTextIcon,
 } from "lucide-react";
@@ -45,7 +42,7 @@ export default function AudioStoryPlayer() {
           {/* Back Button */}
           <button
             onClick={() => router.back()}
-            className="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200 transition"
+            className="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200 transition cursor-pointer"
           >
             <ChevronLeft className="w-6 h-6 text-gray-700" />
           </button>
@@ -78,7 +75,7 @@ export default function AudioStoryPlayer() {
             <img
               src={story.image}
               alt={story.title}
-              className="w-full aspect-square object-cover"
+              className="w-full aspect-square object-fit "
             />
           </div>
         </div>
@@ -96,9 +93,12 @@ export default function AudioStoryPlayer() {
 
         {/* Quiz Button */}
         <div className="mt-10">
-          <Button className="w-full max-w-md mx-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-6 rounded-2xl text-lg shadow-xl flex items-center justify-center gap-3 cursor-pointer">
+          <Button className="w-full max-w-md mx-auto bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold py-6 rounded-full text-lg shadow-2xl flex items-center justify-center gap-3 transition-all duration-300 cursor-pointer">
             <MessageSquare className="w-6 h-6" />
-            Test Your Understanding · 7 Questions
+            Test Your Understanding
+            <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold">
+              7 Questions
+            </span>
           </Button>
         </div>
 
@@ -124,12 +124,13 @@ export default function AudioStoryPlayer() {
 
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="bg-emerald-500 text-white p-6 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
+            className="relative bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 p-8 rounded-full shadow-2xl hover:shadow-emerald-500/50 active:scale-95 transition-all duration-300 group cursor-pointer"
           >
+            <div className="absolute inset-0 rounded-full bg-white/20 blur-xl group-hover:blur-2xl transition "></div>
             {isPlaying ? (
-              <Pause className="w-8 h-8" />
+              <Pause className="w-8 h-8 text-white" />
             ) : (
-              <Play className="w-8 h-8 ml-1" />
+              <Play className="w-8 h-8 ml-1 text-white" />
             )}
           </button>
 
