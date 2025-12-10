@@ -11,6 +11,10 @@ import {
   Pause,
   SkipBack,
   SkipForward,
+  StickyNoteIcon,
+  StickyNote,
+  ClipboardCheck,
+  FileTextIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
@@ -35,24 +39,33 @@ export default function AudioStoryPlayer() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white pb-20">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b">
-        <div className="flex items-center justify-between px-4 py-3">
+      {/* PERFECT HEADER — matches your design 1:1 */}
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
+        <div className="flex items-center justify-between px-4 py-4 safe-top">
+          {/* Back Button */}
           <button
             onClick={() => router.back()}
-            className="p-2 rounded-full hover:bg-gray-100 transition"
+            className="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200 transition"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6 text-gray-700" />
           </button>
-          <span className="text-sm font-semibold text-gray-700">
+
+          {/* Center Text */}
+          <span className="absolute left-1/2 -translate-x-1/2 text-sm font-semibold text-gray-600 tracking-wider">
             NOW PLAYING
           </span>
-          <div className="flex gap-2">
-            <button className="p-2 rounded-full hover:bg-gray-100">
-              <MessageSquare className="w-5 h-5" />
+
+          {/* Right Icons */}
+          <div className="flex items-center gap-3">
+            <button className="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200 transition">
+              <FileTextIcon className="w-5 h-5 text-slate-800" />
             </button>
-            <button className="p-2 rounded-full hover:bg-gray-100">
-              <Share2 className="w-5 h-5" />
+
+            <button className="relative py-2 px-4 rounded-full hover:bg-gray-100 bg-green-600 transition">
+              <ClipboardCheck className="w-5 h-5 text-white" />
+              <span className="absolute -top-1 -right-1 w-5 h-5 text-sm bg-yellow-300 rounded-full border-2 border-white shadow-md font-bold">
+                7
+              </span>
             </button>
           </div>
         </div>
@@ -83,7 +96,7 @@ export default function AudioStoryPlayer() {
 
         {/* Quiz Button */}
         <div className="mt-10">
-          <Button className="w-full max-w-md mx-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-6 rounded-2xl text-lg shadow-xl flex items-center justify-center gap-3">
+          <Button className="w-full max-w-md mx-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-6 rounded-2xl text-lg shadow-xl flex items-center justify-center gap-3 cursor-pointer">
             <MessageSquare className="w-6 h-6" />
             Test Your Understanding · 7 Questions
           </Button>
@@ -105,22 +118,22 @@ export default function AudioStoryPlayer() {
 
         {/* Controls */}
         <div className="flex items-center justify-center gap-8 mt-10">
-          <button className="p-3 rounded-full hover:bg-gray-100 transition">
+          <button className="p-3 rounded-full hover:bg-gray-100 transition cursor-pointer">
             <SkipBack className="w-8 h-8 text-gray-700" />
           </button>
 
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="bg-emerald-500 text-white p-6 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all"
+            className="bg-emerald-500 text-white p-6 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
           >
             {isPlaying ? (
-              <Pause className="w-12 h-12" />
+              <Pause className="w-8 h-8" />
             ) : (
-              <Play className="w-12 h-12 ml-1" />
+              <Play className="w-8 h-8 ml-1" />
             )}
           </button>
 
-          <button className="p-3 rounded-full hover:bg-gray-100 transition">
+          <button className="p-3 rounded-full hover:bg-gray-100 transition cursor-pointer">
             <SkipForward className="w-8 h-8 text-gray-700" />
           </button>
         </div>
