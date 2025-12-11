@@ -1,23 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import {
-  Video,
   Phone,
-  BookOpen,
   Bot,
   Sparkles,
   ChevronRight,
-  MoreHorizontal,
-  Moon,
-  Heart,
   Home,
-  GraduationCap,
   PhoneCall,
   User,
+  Trophy,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
   CarouselContent,
@@ -28,160 +22,55 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import DashboardCard from "./DashboardCard";
+import { stories } from "@/app/data/stories";
+import { humanPracticeRooms } from "@/app/data/humanPracticeRooms";
+import { aiCharacters } from "@/app/data/aiCharacters";
 
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("home");
 
   const router = useRouter();
 
-  const humanPracticeRooms = [
-    {
-      title: "Favorite Animals",
-      description: "Talk about your favorite animals and pets",
-      image:
-        "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=800&h=500&fit=crop",
-      badge: "Be first!",
-    },
-    {
-      title: "Dream Vacation",
-      description: "Where would you go if money was no object?",
-      image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop",
-      badge: "Hot",
-    },
-    {
-      title: "Superpower Choice",
-      description: "If you could have any superpower, what would it be?",
-      image:
-        "https://images.unsplash.com/photo-1534809027769-b00d750a6bac?w=800&h=500&fit=crop",
-    },
-    {
-      title: "Food Adventures",
-      description: "Share your craziest food story or favorite dish",
-      image:
-        "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=500&fit=crop",
-      badge: "10+ waiting",
-    },
-    {
-      title: "Time Travel",
-      description: "Past or future? Where are you going?",
-      image:
-        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=500&fit=crop",
-    },
-    {
-      title: "Ghost Stories",
-      description: "Real or fake — tell your scariest experience",
-      image:
-        "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=500&fit=crop",
-      badge: "Live now",
-    },
-  ];
-  const stories = [
-    {
-      title: "Choosing the Right Path",
-      image:
-        "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=600&fit=crop",
-    },
-    {
-      title: "The Fountain and the Mayor",
-      image:
-        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400&h=600&fit=crop",
-    },
-    {
-      title: "The Less Traveled Road",
-      image:
-        "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400&h=600&fit=crop",
-    },
-    {
-      title: "Whispers of the Forest",
-      image:
-        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=600&fit=crop",
-    },
-    {
-      title: "The Moonlit Garden",
-      image:
-        "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=400&h=600&fit=crop",
-    },
-    {
-      title: "A Star Named Hope",
-      image:
-        "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=400&h=600&fit=crop",
-    },
-    {
-      title: "The Old Lighthouse",
-      image:
-        "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=400&h=600&fit=crop",
-    },
-    {
-      title: "Rainy Days & Warm Tea",
-      image:
-        "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&h=600&fit=crop",
-    },
-    {
-      title: "The Secret Door",
-      image:
-        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=600&fit=crop",
-    },
-    {
-      title: "Dancing with Fireflies",
-      image:
-        "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=400&h=600&fit=crop",
-    },
-    {
-      title: "The Boy and the Mountain",
-      image:
-        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=600&fit=crop",
-    },
-    {
-      title: "Echoes of Tomorrow",
-      image:
-        "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=600&fit=crop",
-    },
-  ];
-
   const mainActions = [
-    { icon: Video, label: "Video Learning", color: "bg-blue-100" },
-    { icon: Phone, label: "Peer Calls", color: "bg-red-100", badge: 2 },
-    { icon: BookOpen, label: "Stories", color: "bg-orange-100" },
-    { icon: Bot, label: "AI Calls", color: "bg-pink-100" },
-  ];
-
-  const aiCharacters = [
     {
-      name: "Talk with Doraemon",
-      image:
-        "https://images.unsplash.com/photo-1685360798969-395cf93b7d2d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZG9yYWVtb258ZW58MHx8MHx8fDA%3D",
-      bgColor: "bg-blue-100",
+      svg: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="text-blue-600"
+        >
+          <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+          <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+        </svg>
+      ),
+      label: "Video Learning",
+      color: "bg-blue-100",
     },
     {
-      name: "Talk with Spider Man",
       image:
-        "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BpZGVybWFufGVufDB8fDB8fHww",
-      bgColor: "bg-red-100",
+        "https://storage.googleapis.com/speakgenie-assets/images/Homescreen/tabs/peercall.webp",
+      label: "Peer Calls",
+      color: "bg-blue-100",
+      badge: 2,
     },
     {
-      name: "Talk with Pikachu",
       image:
-        "https://images.unsplash.com/photo-1605979399824-542335ee35d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGlrYWNodXxlbnwwfHwwfHx8MA%3D%3D",
-      bgColor: "bg-yellow-100",
+        "https://storage.googleapis.com/speakgenie-assets/images/Homescreen/tabs/stories.webp",
+      label: "Stories",
+      color: "bg-orange-100",
     },
     {
-      name: "Talk with Batman",
       image:
-        "https://images.unsplash.com/photo-1588860939994-ce4f7a537f03?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhdG1hbnxlbnwwfHwwfHx8MA%3D%3D",
-      bgColor: "bg-purple-100",
-    },
-    {
-      name: "Talk with Iron Man",
-      image:
-        "https://images.unsplash.com/photo-1636840438199-9125cd03c3b0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aXJvbiUyMG1hbnxlbnwwfHwwfHx8MA%3D%3D",
-      bgColor: "bg-gray-100",
-    },
-    {
-      name: "Talk with Minions",
-      image:
-        "https://images.unsplash.com/photo-1515041219749-89347f83291a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWluaW9uc3xlbnwwfHwwfHx8MA%3D%3D",
-      bgColor: "bg-yellow-200",
+        "https://storage.googleapis.com/speakgenie-assets/images/Homescreen/tabs/AIcalls.webp",
+      label: "AI Calls",
+      color: "bg-pink-100",
     },
   ];
 
@@ -195,17 +84,23 @@ const HomeScreen = () => {
           {mainActions.map((action, idx) => (
             <button
               key={idx}
-              className="flex flex-col items-center gap-2 group cursor-pointer"
+              className="flex flex-col items-center gap-2 group cursor-pointer "
             >
-              <div
-                className={`relative w-16 h-16 ${action.color} rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform`}
-              >
-                <action.icon className="w-7 h-7 text-gray-700" />
-                {action.badge && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
-                    {action.badge}
-                  </span>
-                )}
+              <div className="shadow-2xl rounded-full p-2">
+                <div
+                  className={`relative w-20 h-20 ${action.color} rounded-full flex items-center justify-center group-hover:scale-105 transition-transform `}
+                >
+                  {action.svg && action.svg}
+
+                  {/* If action has image → render image */}
+                  {action.image && (
+                    <img
+                      src={action.image}
+                      alt={action.label}
+                      className="w-10 h-10 object-contain"
+                    />
+                  )}
+                </div>
               </div>
               <span
                 className="text-sm font-semibold
@@ -246,7 +141,7 @@ const HomeScreen = () => {
                   <Link href={`/story/${index}`} className="block">
                     {" "}
                     {/* This makes it clickable */}
-                    <div className="relative rounded-2xl overflow-hidden mb-2 aspect-[2/3] group cursor-pointer">
+                    <div className="relative rounded-2xl overflow-hidden mb-2 h-64 md:h-72 lg:h-80 group cursor-pointer">
                       <img
                         src={story.image}
                         alt={story.title}
@@ -373,57 +268,36 @@ const HomeScreen = () => {
 
       {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-8 py-4">
-        <div className="flex items-center justify-between max-w-md mx-auto">
+        <div className="flex items-center justify-evenly mx-auto">
           <button
             onClick={() => setActiveTab("home")}
-            className="flex flex-col items-center gap-1 group cursor-pointer"
+            className="flex flex-col items-center gap-1 px-6 py-2 rounded-lg cursor-pointer transition-colors group"
           >
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                activeTab === "home" ? "bg-emerald-500" : "bg-transparent"
+            <Home
+              className={`w-7 h-7 transition-all duration-200 ${
+                activeTab === "home" ? "text-emerald-500" : "text-gray-500 "
               }`}
-            >
-              <Home
-                className={`w-5 h-5 ${
-                  activeTab === "home" ? "text-white" : "text-gray-400"
-                }`}
-              />
-            </div>
+            />
             <span
-              className={`text-xs ${
-                activeTab === "home"
-                  ? "text-emerald-500 font-semibold"
-                  : "text-gray-400"
+              className={`text-sm font-bold transition-all duration-200 ${
+                activeTab === "home" ? "text-emerald-500" : "text-gray-400 "
               }`}
             >
               Home
             </span>
           </button>
-
           <button
             onClick={() => {
               setActiveTab("learn");
               router.push("/learn");
             }}
-            className="flex flex-col items-center gap-1 group cursor-pointer"
+            className="flex flex-col items-center gap-1.5 px-6 py-3 cursor-pointer"
           >
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                activeTab === "learn" ? "bg-emerald-500" : "bg-transparent"
-              }`}
-            >
-              <GraduationCap
-                className={`w-5 h-5 ${
-                  activeTab === "learn" ? "text-white" : "text-gray-400"
-                }`}
-              />
-            </div>
+            <Trophy
+              className={`w-7 h-7 ${activeTab === "learn" ? "text-emerald-500" : "text-gray-500"}`}
+            />
             <span
-              className={`text-xs ${
-                activeTab === "learn"
-                  ? "text-emerald-500 font-semibold"
-                  : "text-gray-400"
-              }`}
+              className={`text-sm font-bold ${activeTab === "learn" ? "text-emerald-500" : "text-gray-500"}`}
             >
               Learn
             </span>
@@ -431,25 +305,13 @@ const HomeScreen = () => {
 
           <button
             onClick={() => setActiveTab("call")}
-            className="flex flex-col items-center gap-1 group cursor-pointer"
+            className="flex flex-col items-center gap-1.5 px-6 py-3 cursor-pointer"
           >
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                activeTab === "call" ? "bg-emerald-500" : "bg-transparent"
-              }`}
-            >
-              <PhoneCall
-                className={`w-5 h-5 ${
-                  activeTab === "call" ? "text-white" : "text-gray-400"
-                }`}
-              />
-            </div>
+            <PhoneCall
+              className={`w-7 h-7 ${activeTab === "call" ? "text-emerald-500" : "text-gray-500"}`}
+            />
             <span
-              className={`text-xs ${
-                activeTab === "call"
-                  ? "text-emerald-500 font-semibold"
-                  : "text-gray-400"
-              }`}
+              className={`text-sm font-bold ${activeTab === "call" ? "text-emerald-500" : "text-gray-500"}`}
             >
               Call
             </span>
@@ -457,25 +319,13 @@ const HomeScreen = () => {
 
           <button
             onClick={() => setActiveTab("profile")}
-            className="flex flex-col items-center gap-1 group cursor-pointer"
+            className="flex flex-col items-center gap-1.5 px-6 py-3 cursor-pointer"
           >
-            <div
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                activeTab === "profile" ? "bg-emerald-500" : "bg-transparent"
-              }`}
-            >
-              <User
-                className={`w-5 h-5 ${
-                  activeTab === "profile" ? "text-white" : "text-gray-400"
-                }`}
-              />
-            </div>
+            <User
+              className={`w-7 h-7 ${activeTab === "profile" ? "text-emerald-500" : "text-gray-500"}`}
+            />
             <span
-              className={`text-xs ${
-                activeTab === "profile"
-                  ? "text-emerald-500 font-semibold"
-                  : "text-gray-400"
-              }`}
+              className={`text-sm font-bold ${activeTab === "profile" ? "text-emerald-500" : "text-gray-500"}`}
             >
               Profile
             </span>
