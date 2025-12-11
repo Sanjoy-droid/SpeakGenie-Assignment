@@ -26,9 +26,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("home");
+
+  const router = useRouter();
 
   const humanPracticeRooms = [
     {
@@ -462,7 +465,10 @@ const HomeScreen = () => {
           </button>
 
           <button
-            onClick={() => setActiveTab("learn")}
+            onClick={() => {
+              setActiveTab("learn");
+              router.push("/learn");
+            }}
             className="flex flex-col items-center gap-1 group cursor-pointer"
           >
             <div
