@@ -8,7 +8,7 @@ The setup is minimal so you can clone the repo, install dependencies, and start 
 
 ```bash
 git clone git@github.com:Sanjoy-droid/SpeakGenie-Assignment.git
-cd Spekagennie-Assignment
+cd SpeakGenie-Assignment
 npm install
 npm run dev
 ```
