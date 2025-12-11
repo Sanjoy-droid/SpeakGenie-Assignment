@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 const LearnComp = () => {
   const [topic, setTopic] = useState("");
-  const [difficulty, setDifficulty] = useState("medium");
+  const [difficulty, setDifficulty] = useState("");
   const router = useRouter();
 
   const predefinedTopics = [
@@ -27,11 +27,11 @@ const LearnComp = () => {
       <div className="p-4 flex items-center gap-3">
         <button
           onClick={() => router.back()}
-          className="p-2.5 bg-white rounded-full shadow-sm text-gray-600 cursor-pointer"
+          className="flex items-center gap-2 px-5 py-3 bg-white rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-200 cursor-pointer"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft className="w-5 h-5 text-emerald-600" />
+          <span className="text-emerald-600 font-semibold text-base">Back</span>
         </button>
-        <span className="text-gray-500 font-semibold text-base">Back</span>
       </div>
       {/* ↑ Header closed properly */}
 
@@ -91,7 +91,7 @@ const LearnComp = () => {
               <button
                 key={item}
                 onClick={() => handleTopicClick(item)}
-                className={`px-5 py-3 rounded-full text-base font-semibold transition-all ${
+                className={`px-5 py-3 rounded-full text-base font-semibold transition-all cursor-pointer ${
                   topic === item
                     ? "bg-emerald-600 text-white shadow-lg"
                     : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -104,7 +104,7 @@ const LearnComp = () => {
         </div>
 
         {/* STEP 2: Challenge Level */}
-        <div className="mb-9">
+        <div className="mb-9 ">
           <p className="text-emerald-600 text-xs font-bold uppercase tracking-wider mb-2">
             Step 2
           </p>
@@ -114,105 +114,116 @@ const LearnComp = () => {
 
           <div className="space-y-4">
             {/* Easy */}
-            <div
+            <button
               onClick={() => setDifficulty("easy")}
-              className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
+              className={`relative w-full p-6 rounded-3xl border-2 text-left transition-all duration-300 overflow-hidden cursor-pointer ${
                 difficulty === "easy"
-                  ? "border-emerald-500 bg-emerald-50 shadow-md"
-                  : "border-gray-200 bg-white"
+                  ? "border-emerald-500 bg-emerald-50 shadow-lg"
+                  : "border-gray-200 bg-white hover:border-gray-300"
               }`}
             >
-              <div className="flex justify-between items-start mb-2">
-                <h3
-                  className={`text-xl font-bold ${difficulty === "easy" ? "text-emerald-700" : "text-gray-700"}`}
-                >
-                  Easy
-                </h3>
-                <Lightbulb
-                  size={28}
-                  className={
-                    difficulty === "easy"
-                      ? "text-emerald-500"
-                      : "text-emerald-400"
-                  }
-                />
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-xl font-bold text-emerald-700 mb-2 flex items-center gap-2">
+                    Easy
+                    <Lightbulb className="w-7 h-7 text-emerald-500" />
+                  </h3>
+                  <p className="text-gray-600">
+                    Short sentences & gentle vocabulary.
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600 text-base">
-                Short sentences & gentle vocabulary.
-              </p>
-            </div>
 
-            {/* Medium */}
-            <div
-              onClick={() => setDifficulty("medium")}
-              className={`p-5 rounded-2xl border-2 cursor-pointer transition-all relative overflow-hidden ${
-                difficulty === "medium"
-                  ? "border-emerald-500 shadow-lg"
-                  : "border-gray-200 bg-white"
-              }`}
-            >
-              {difficulty === "medium" && (
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-transparent opacity-70" />
-              )}
-              <div className="relative flex justify-between items-start mb-2">
-                <h3
-                  className={`text-xl font-bold ${difficulty === "medium" ? "text-emerald-700" : "text-amber-600"}`}
-                >
-                  Medium
-                </h3>
-                <Sparkles size={28} className="text-amber-500" />
-              </div>
-              <p className="text-gray-600 text-base relative">
-                Everyday situations with detail.
-              </p>
-
-              {difficulty === "medium" && (
-                <span className="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+              {/* Selected Badge */}
+              {difficulty === "easy" && (
+                <span className="absolute top-4 right-4 bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
                   Selected
                 </span>
               )}
-            </div>
+            </button>
 
-            {/* Hard */}
-            <div
-              onClick={() => setDifficulty("hard")}
-              className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
-                difficulty === "hard"
-                  ? "border-emerald-500 bg-emerald-50 shadow-md"
-                  : "border-gray-200 bg-white"
+            {/* Medium */}
+            <button
+              onClick={() => setDifficulty("medium")}
+              className={`relative w-full p-6 rounded-3xl border-2 text-left transition-all duration-300 overflow-hidden cursor-pointer ${
+                difficulty === "medium"
+                  ? "border-orange-500 bg-orange-50 shadow-lg"
+                  : "border-gray-200 bg-white hover:border-gray-300"
               }`}
             >
-              <div className="flex justify-between items-start mb-2">
-                <h3
-                  className={`text-xl font-bold ${difficulty === "hard" ? "text-emerald-700" : "text-purple-600"}`}
-                >
-                  Hard
-                </h3>
-                <Target size={28} className="text-purple-500" />
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-xl font-bold text-orange-700 mb-2 flex items-center gap-2">
+                    Medium
+                    <Sparkles className="w-7 h-7 text-orange-500" />
+                  </h3>
+                  <p className="text-gray-600">
+                    Everyday situations with detail.
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600 text-base">
-                Longer thinking and tricky choices.
-              </p>
-            </div>
+
+              {difficulty === "medium" && (
+                <span className="absolute top-4 right-4 bg-orange-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                  Selected
+                </span>
+              )}
+            </button>
+
+            {/* Hard */}
+            <button
+              onClick={() => setDifficulty("hard")}
+              className={`relative w-full p-6 rounded-3xl border-2 text-left transition-all duration-300 overflow-hidden cursor-pointer ${
+                difficulty === "hard"
+                  ? "border-purple-500 bg-purple-50 shadow-lg"
+                  : "border-gray-200 bg-white hover:border-gray-300"
+              }`}
+            >
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-xl font-bold text-purple-700 mb-2 flex items-center gap-2">
+                    Hard
+                    <Target className="w-7 h-7 text-purple-500" />
+                  </h3>
+                  <p className="text-gray-600">
+                    Longer thinking and tricky choices.
+                  </p>
+                </div>
+              </div>
+
+              {difficulty === "hard" && (
+                <span className="absolute top-4 right-4 bg-purple-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                  Selected
+                </span>
+              )}
+            </button>
           </div>
         </div>
-
-        {/* What You'll Get Box */}
-        <div className="bg-emerald-600 rounded-2xl p-6 text-white mb-8 shadow-xl shadow-emerald-300/30">
-          <h3 className="text-2xl font-bold mb-2">
-            Friendly quiz with instant feedback
-          </h3>
-          <p className="text-emerald-100 text-xs font-bold uppercase tracking-wider mb-4">
+        {/* WHAT YOU'LL GET — PERFECT MATCH */}
+        <div className="bg-emerald-500 rounded-3xl p-6 text-white shadow-2xl shadow-emerald-600/40 mb-10">
+          {/* Uppercase label */}
+          <p className="text-emerald-100 text-xs font-bold uppercase tracking-widest mb-2">
             What you'll get
           </p>
-          <ul className="space-y-3 text-base text-emerald-50">
-            <li className="flex gap-3 items-start">
-              <span className="mt-1.5 text-lg">•</span>
+
+          {/* Big title */}
+          <h3 className="text-2xl md:text-3xl font-bold leading-tight mb-6">
+            Friendly quiz with instant feedback
+          </h3>
+
+          {/* Bullet list with proper green dots */}
+          <ul className="space-y-4 text-white text-lg">
+            <li className="flex gap-4 items-start">
+              <span className="w-2 h-2 bg-white rounded-full mt-2.5 flex-shrink-0" />
               <span>Bite-sized explanations for every answer.</span>
             </li>
-            <li className="flex gap-3 items-start">
-              <span className="mt-1.5 text-lg">•</span>
+            <li className="flex gap-4 items-start">
+              <span className="w-2 h-2 bg-white rounded-full mt-2.5 flex-shrink-0" />
               <span>Tone automatically matches the learner profile.</span>
+            </li>
+            <li className="flex gap-4 items-start">
+              <span className="w-2 h-2 bg-white rounded-full mt-2.5 flex-shrink-0" />
+              <span>Ready-to-play quiz inside the Learn tab.</span>
             </li>
           </ul>
         </div>
@@ -220,9 +231,9 @@ const LearnComp = () => {
         {/* Generate Quiz Button */}
         <button
           disabled={topic.length === 0}
-          className={`w-full py-5 rounded-2xl font-bold text-xl shadow-xl transition-all ${
-            topic.length > 0
-              ? "bg-emerald-600 text-white hover:bg-emerald-700 active:scale-98 shadow-emerald-300"
+          className={`w-full py-5 rounded-2xl font-bold text-xl shadow-xl transition-all  ${
+            topic.length > 0 && difficulty.length > 0
+              ? "bg-emerald-600 text-white hover:bg-emerald-700 active:scale-98 shadow-emerald-300 cursor-pointer"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
