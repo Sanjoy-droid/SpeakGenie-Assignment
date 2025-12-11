@@ -12,6 +12,11 @@ import {
   SkipForward,
   ClipboardCheck,
   FileTextIcon,
+  Volume2,
+  RotateCcw,
+  RotateCw,
+  Clock,
+  Repeat,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useParams, useRouter } from "next/navigation";
@@ -35,7 +40,7 @@ export default function AudioStoryPlayer() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white pb-20">
+    <div className="min-h-screen bg-gradient-to-b from-emerald-100 to-white pb-20">
       {/* PERFECT HEADER — matches your design 1:1 */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100">
         <div className="flex items-center justify-between px-4 py-4 safe-top">
@@ -48,7 +53,7 @@ export default function AudioStoryPlayer() {
           </button>
 
           {/* Center Text */}
-          <span className="absolute left-1/2 -translate-x-1/2 text-sm font-semibold text-gray-600 tracking-wider">
+          <span className="absolute left-1/2 -translate-x-1/2 text-sm font-semibold text-gray-600 tracking-wider ">
             NOW PLAYING
           </span>
 
@@ -117,25 +122,41 @@ export default function AudioStoryPlayer() {
         </div>
 
         {/* Controls */}
-        <div className="flex items-center justify-center gap-8 mt-10">
-          <button className="p-3 rounded-full hover:bg-gray-100 transition cursor-pointer">
-            <SkipBack className="w-8 h-8 text-gray-700" />
+        <div className="flex items-center justify-center gap-6 mt-10">
+          <button className="p-2 rounded-full hover:bg-gray-100 active:scale-95 transition-all duration-200 cursor-pointer">
+            <Volume2 className="w-5 h-5 text-gray-600" />
+          </button>
+
+          <button className="p-2 rounded-full hover:bg-gray-100 active:scale-95 transition-all duration-200 cursor-pointer">
+            <RotateCcw className="w-5 h-5 text-gray-600" />
+          </button>
+
+          <button className="p-2 rounded-full hover:bg-gray-100 active:scale-95 transition-all duration-200 cursor-pointer">
+            <SkipBack className="w-6 h-6 text-gray-700 fill-current" />
           </button>
 
           <button
             onClick={() => setIsPlaying(!isPlaying)}
             className="relative bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 p-8 rounded-full shadow-2xl hover:shadow-emerald-500/50 active:scale-95 transition-all duration-300 group cursor-pointer"
           >
-            <div className="absolute inset-0 rounded-full bg-white/20 blur-xl group-hover:blur-2xl transition "></div>
+            <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             {isPlaying ? (
-              <Pause className="w-8 h-8 text-white" />
+              <Pause className="w-8 h-8 text-white fill-current relative z-10" />
             ) : (
-              <Play className="w-8 h-8 ml-1 text-white" />
+              <Play className="w-8 h-8 text-white fill-current relative z-10 ml-1" />
             )}
           </button>
 
-          <button className="p-3 rounded-full hover:bg-gray-100 transition cursor-pointer">
-            <SkipForward className="w-8 h-8 text-gray-700" />
+          <button className="p-2 rounded-full hover:bg-gray-100 active:scale-95 transition-all duration-200 cursor-pointer">
+            <SkipForward className="w-6 h-6 text-gray-700 fill-current" />
+          </button>
+
+          <button className="p-2 rounded-full hover:bg-gray-100 active:scale-95 transition-all duration-200 cursor-pointer">
+            <Repeat className="w-5 h-5 text-gray-400" />
+          </button>
+
+          <button className="p-2 rounded-full hover:bg-gray-100 active:scale-95 transition-all duration-200 cursor-pointer">
+            <Clock className="w-5 h-5 text-gray-600" />
           </button>
         </div>
       </main>
