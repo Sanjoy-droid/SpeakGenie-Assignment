@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import DashboardCard from "./DashboardCard";
 
 const HomeScreen = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -186,72 +187,7 @@ const HomeScreen = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-50 to-white pb-20">
-      {/* User Dashboard Card */}
-      <div className="bg-emerald-400 pt-12 pb-8 px-6 rounded-b-[32px]">
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-pink-300 flex items-center justify-center overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
-                alt="User"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <p className="text-emerald-100 text-sm flex items-center gap-2">
-                <Moon className="w-4 h-4" />
-                Good Night
-              </p>
-              <h1 className="text-white text-2xl font-bold">Lorenzo</h1>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Badge
-              variant="secondary"
-              className="bg-white/20 text-white border-0 flex items-center gap-1"
-            >
-              <Heart className="w-4 h-4 fill-current" />
-              30
-            </Badge>
-            <Badge className="bg-orange-500 text-white border-0 font-semibold">
-              PRO
-            </Badge>
-          </div>
-        </div>
-
-        {/* XP Progress Section */}
-        <Card className="bg-emerald-500 border-0 shadow-lg">
-          <CardContent className="p-5">
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-emerald-400 flex items-center justify-center text-white font-semibold">
-                  L3
-                </div>
-                <div>
-                  <p className="text-white text-sm font-semibold flex items-center gap-1">
-                    XP PROGRESS
-                    <Sparkles className="w-3 h-3" />
-                  </p>
-                  <p className="text-emerald-100 text-xs">42/100 XP</p>
-                </div>
-              </div>
-              <p className="text-emerald-100 text-xs">Next: L4</p>
-            </div>
-
-            <div className="bg-emerald-400 rounded-full h-2 mb-4 overflow-hidden">
-              <div className="bg-white h-full w-[42%] rounded-full"></div>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-white" />
-                <span className="text-white font-semibold">242 XP</span>
-              </div>
-              <MoreHorizontal className="w-5 h-5 text-white" />
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      <DashboardCard />
 
       {/* Main Action Icons */}
       <div className="px-6 py-6">
