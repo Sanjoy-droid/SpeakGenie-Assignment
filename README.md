@@ -1,4 +1,3 @@
----
 
 # SpekaGennie Assignment
 
@@ -36,5 +35,3 @@ The app supports hot-reloading, so any changes you make will update automaticall
 * `npm run build` – generates an optimized production build
 * `npm start` – runs the production build
 
-
----
